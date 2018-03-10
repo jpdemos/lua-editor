@@ -1,5 +1,5 @@
-// This panel is used to show a lua editor in a HTML panel.
-// The editor itself is a JS editor that we derive here to allow us to execute lua code from within a game (called Garry's Mod).
+-- This panel is used to show a lua editor in a HTML panel.
+-- The editor itself is a JS editor that we derive here to allow us to execute lua code from within a game (called Garry's Mod).
 
 --helpers
 local encode = string.JavascriptSafe
@@ -15,12 +15,12 @@ local PANEL = {}
 local TAG = "lua_editor"
 local file = file
 
-PANEL.URL = "http://metastruct.github.io/lua_editor/index.html" // This is where the JS editor is stored.
+PANEL.URL = "http://metastruct.github.io/lua_editor/index.html" -- This is where the JS editor is stored.
 local lua_editor_url = CreateClientConVar( "lua_editor_url", "", false, false )
 
 //static modes and themes
 PANEL.Modes = {
-	"glua", // glua is a reference to the modified game's lua language.
+	"glua", -- glua is a reference to the modified game's lua language.
 	"lua",
 	"javascript",
 	"json",
@@ -115,7 +115,7 @@ function PANEL:Init()
 			draw.RoundedBox( 2, 2, 2, w - 4, h - 4, Color( 200, 75, 75 ) )
 		end
 	
-	// Save snippets on game shutdown
+	-- Save snippets on game shutdown
 	hook.Add( "ShutDown", self, function()
 		if not IsValid( self ) or not self.HTML then return end
 		self:SaveSnippets()
@@ -195,7 +195,7 @@ function PANEL:CreateHTML()
 			}
 			]] ):format( encode( wrap ), encode( caller ) )
 
-			self:Call( wrap ) // This will run the wrap string as JS code.
+			self:Call( wrap ) -- This will run the wrap string as JS code.
 
 		end
 		
@@ -221,7 +221,7 @@ function PANEL:CreateHTML()
 	self.HTML:AddFunction( "console", "info", function(...) Msg"[LuaEditor] " print(...) end )
 	self.HTML:AddFunction( "console", "warn", function(...) Msg"[LuaEditor] " print(...) end )
 	
-	bind "OnSelection" // gmodinterface.OnSelection is created on the JS editor, and will call PANEL:OnSelection when triggered.
+	bind "OnSelection" -- gmodinterface.OnSelection is created on the JS editor, and will call PANEL:OnSelection when triggered.
 	bind "OnReady"
 	bind "OnCode"
 	bind "OnLog"
@@ -373,7 +373,7 @@ local function getLuaCheckMessages(code)
 
 end
 
-function PANEL:ValidateCode( code ) // Here we make sure the code is valid, meaning doesn't error, before actually running it.
+function PANEL:ValidateCode( code ) -- Here we make sure the code is valid, meaning doesn't error, before actually running it.
 
 	code = code or self:GetCode()
 	
@@ -389,7 +389,7 @@ function PANEL:ValidateCode( code ) // Here we make sure the code is valid, mean
 	end
 	
 	local took = os.clock()
-	local err  = CompileString( code, "lua_editor", false ) // CompileString is used to make sure there is no error on the code.
+	local err  = CompileString( code, "lua_editor", false ) -- CompileString is used to make sure there is no error on the code.
 	took = ( os.clock() - took ) * 1000
 	
 	if type( err ) == "string" then
@@ -448,7 +448,7 @@ local function UID() x=x+1 return x end
 
 -- Events
 function PANEL:oncontextmenu()
-	local m = DermaMenu() // This is a virtual, built-in menu.
+	local m = DermaMenu() -- This is a virtual, built-in menu.
 	
 	m:AddOption("Copy",function()
 		self:GetSelection(function(code)
@@ -627,7 +627,7 @@ function PANEL:OnReady()
 		TogetherJSConfig_getUserName = function () {return %s;};
 	]], LocalPlayer():Nick() );
 	
-	// Creating the JS functions to allow communications with the lua interface
+	-- Creating the JS functions to allow communications with the lua interface
 	self.HTML:FCall [[
 		document.body.onmousedown = function( evt ) {
 			if (evt.button == 0 || evt.button == 1) {
@@ -680,7 +680,7 @@ function PANEL:OnCode( code )
 	
 	local sessName = self:GetSessionName()
 	
-	// Saving the content after 0.7 seconds (so we don't save every keystrokes). 0.7s is an arbitrary amount.
+	-- Saving the content after 0.7 seconds (so we don't save every keystrokes). 0.7s is an arbitrary amount.
 	timer.Create( "lua_editor_autosave_" .. sessName, 0.7, 1, function()
 
 		if not self then return end
@@ -704,7 +704,7 @@ PANEL.OnSessionRemoved	= function( self, name ) end
 PANEL.OnSessionChanged  = function( self, name ) end
 PANEL.OnHTMLLoaded		= function( self, html ) end
 
-function PANEL:Save( code, filepath ) // Saving the files on the system
+function PANEL:Save( code, filepath ) -- Saving the files on the system
 
 	if not filepath or filepath:len() < 1 or not code then	return end
 	if file.Read( filepath, "GAME" ) then					return end
@@ -961,7 +961,7 @@ vgui.Register( TAG, PANEL, "EditablePanel" )
 
 
 
-refresh_autocompletes = function() // This function retrieve the game's lua interface functions so we can add auto completions on the JS editor.
+refresh_autocompletes = function() -- This function retrieve the game's lua interface functions so we can add auto completions on the JS editor.
 
 	
 	local _R=debug.getregistry()

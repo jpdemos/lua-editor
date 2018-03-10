@@ -1,5 +1,4 @@
-// This file contains the GUI definitions needed to show the lua editor panel.
-// 
+-- This file contains the GUI definitions needed to show the lua editor panel.
 
 local function FormatName( str )
 	return str:gsub( "[^%/%w%_%. ]", "" )
@@ -7,9 +6,9 @@ end
 
 local PANEL = {}
 do
-	AccessorFunc( PANEL, "m_pPropertySheet", "PropertySheet" ) // Creates Get* & Set* accessors
+	AccessorFunc( PANEL, "m_pPropertySheet", "PropertySheet" ) -- Creates Get* & Set* accessors
 	AccessorFunc( PANEL, "Name", 			 "Name" )
-	Derma_Hook( PANEL, "Paint", "Paint", "Tab" ) // Binds the "Paint" function to some built-in "Tab" paint algorithm.
+	Derma_Hook( PANEL, "Paint", "Paint", "Tab" ) -- Binds the "Paint" function to some built-in "Tab" paint algorithm.
 	
 	function PANEL:Init()
 		self:SetMouseInputEnabled( true )
@@ -36,7 +35,7 @@ do
 		
 		SubMenu:AddOption( "Remove file", function()
 
-			Derma_Query( // This pops up a confirmation GUI to the user to make sure he doesn't delete the file on accident.
+			Derma_Query( -- This pops up a confirmation GUI to the user to make sure he doesn't delete the file on accident.
 				"This action will delete the file. Are you sure?",
 				"Confirmation",
 				"Delete", function()
@@ -186,7 +185,7 @@ do
 			return self:SetTextStyleColor( skin.Colours.Tab.Active.Down )
 		end
 		
-		self.Editor = vgui.Create( "lua_editor", self ) // This is from lua_editor.lua
+		self.Editor = vgui.Create( "lua_editor", self ) -- This is from lua_editor.lua
 		self.Editor:Dock( FILL )
 		self.Editor:DockMargin( 4, 0, 4, 4 )
 		self.Editor.OnLoaded = function()
@@ -206,7 +205,7 @@ do
 		    self:SwitchToName( name )
 		end
 
-		hook.Add( "ShutDown", self, function() // Making sure we save the active tab and the tabs order before quitting the game.
+		hook.Add( "ShutDown", self, function() -- Making sure we save the active tab and the tabs order before quitting the game.
 			if not IsValid( self ) or not self.Loaded then return end
 			self:SaveTabsOrder()
 			self:SaveActiveTab()
