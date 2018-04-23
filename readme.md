@@ -8,11 +8,11 @@ lua_editor_panels.lua: This is the (V)GUI part. It communicate with the lua edit
 
 ### Français
 Ce projet implémente un éditeur JavaScript (Ace Editor) et le transforme en éditeur Lua, ce qui permet d'écrire et d'éxecuter des scripts depuis le jeu Garry's Mod.
-Tous les fichiers ne sont pas inclus car ce project necessite beaucoup de fichiers de base du jeu (Garry's Mod) et de fichiers privé provenant de ma team (ils sont privé).
+Tous les fichiers ne sont pas inclus car ce project necessite beaucoup de fichiers de base du jeu (Garry's Mod) et de fichiers privés provenant de ma team (ils sont privés).
 
 Que fait ce projet:
-lua_editor.lua: Une page web est affiché (provenant du serveur de notre team, remplacable), et ce script permet d'y éxecuter du code lua.
-lua_editor_panels.lua: C'est la partie (V)GUI. Ca permet de gérer plusieurs séssions de code et de sauvegarder les fichiers ouvert, et leur ordre.
+lua_editor.lua: Une page web est affiché (provenant du serveur de notre team, remplacable), et ce script permet d'y exécuter du code lua.
+lua_editor_panels.lua: C'est la partie (V)GUI. Ça permet de gérer plusieurs séssions de code et de sauvegarder les fichiers ouverts, et leur ordre.
 
 
 ### Preview / Apperçu
@@ -21,5 +21,5 @@ lua_editor_panels.lua: C'est la partie (V)GUI. Ca permet de gérer plusieurs sé
 Surrounded in red: lua_editor.lua, the interactive web page that allows to code in Lua from within the game.
 Surrounded in blue: lua_editor_panels.lua, the tabs that allows to manage (create, change order, delete) the files sessions.
 
-Entouré en rouge: lua_editor.lua, la page web intéractive qui permet de coder et d'éxecuter du Lua dans le jeu.
+Entouré en rouge: lua_editor.lua, la page web intéractive qui permet de coder et d'exécuter du Lua dans le jeu.
 Entouré en bleu: lua_editor_panels.lua, les tabs qui permettent de gérer (créer, changer l'order, supprimer) les séssions (fichiers).
