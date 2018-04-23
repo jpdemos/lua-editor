@@ -18,8 +18,9 @@ lua_editor_panels.lua: C'est la partie (V)GUI. Ça permet de gérer plusieurs s�
 ### Preview / Apperçu
 
 ![Preview/Appercu](https://i.imgur.com/R5XaA0u.png)
-Surrounded in red: lua_editor.lua, the interactive web page that allows to code in Lua from within the game.
-Surrounded in blue: lua_editor_panels.lua, the tabs that allows to manage (create, change order, delete) the files sessions.
+**Surrounded in red**: lua_editor.lua, the interactive web page that allows to code in Lua from within the game.
+**Surrounded in blue**: lua_editor_panels.lua, the tabs that allows to manage (create, change order, delete) the files sessions.
 
-Entouré en rouge: lua_editor.lua, la page web intéractive qui permet de coder et d'exécuter du Lua dans le jeu.
-Entouré en bleu: lua_editor_panels.lua, les tabs qui permettent de gérer (créer, changer l'order, supprimer) les séssions (fichiers).
+
+**Entouré en rouge**: lua_editor.lua, la page web intéractive qui permet de coder et d'exécuter du Lua dans le jeu.
+**Entouré en bleu**: lua_editor_panels.lua, les tabs qui permettent de gérer (créer, changer l'order, supprimer) les séssions (fichiers).
